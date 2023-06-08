@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  
+  
+    <!-- NOTAS: ALT+CTRL+I (INSPECTOR ESCENA - SOBRE PREVIEW)-->
+  
+  <!-- A VR Scene inspired by japanese otaku subculture-->
+  
+  
+  <head>
+    ...
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-babia-components/dist/aframe-babia-components.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    
+ 
+  </head>
+
+      
+    <!------ Scene ------>
+  
+  <body>  
+     
+    
+    <!-- Sky -->
+    
+
+    <a-scene renderer="precision: mediump; antialias: false; alpha: true; logarithmicDepthBuffer: true; colorManagement: false;"
+               fog="type: linear; color: #fff; near: 0.0001; far: 800; density:10">
+    
+    <a-scene>
+      <img id="sky" src="https://cdn.glitch.global/b4270e34-f59d-42cd-9363-648211ab99a5/evening_road_01_2k.hdr?v=1683747412694"> 
+      <a-sky src="#sky" intensity="0.5"></a-sky>
+    </a-scene>
+      
+    
+      
+      <a-sky src="https://cdn.glitch.global/b4270e34-f59d-42cd-9363-648211ab99a5/anime_hdr_07.jpg?v=1684697363670" enable="true"></a-sky>
+
+      
+      <!-- Dim ambient lighting. -->
+      
+    <a-light type="ambient" color="#ffffff" intensity="0.2"></a-light>
+      
+
+
+      <!-- Camera -->
+      
+      <a-entity movement-controls="fly: false" position="0 0 4">
+        <a-entity camera position="0 1.6 2" look-controls></a-entity>
+        <a-entity cursor="rayOrigin:mouse"></a-entity>
+        <a-entity laser-controls="hand: right"></a-entity>
+      </a-entity>
+           
+      
+      
+    
+      <a-assets>
+       
+      </a-assets>
+   
+      
+      
+      <!-----------------------------------------------------------------3D --------------------------------------------------------------------------------->
+      
+      
+     
+      
+            
+      <!--ENVIRO -->
+      
+         <a-assets>
+        <a-asset-item id="ground" src="https://cdn.glitch.global/b4270e34-f59d-42cd-9363-648211ab99a5/FloorTiles_Stylized_desaturated.png?v=1684943219485"></a-asset-item>
+      </a-assets>
+      
+      <a-image src="#ground" height="100" width="100" rotation="-90 90 0" repeat="29 29" roughness= "0.8" shader= "flat"></a-image>
+
+    
+
+      
+      
+      
+      <!-- Japanese Palace -->
+            
+      <a-assets>
+        <a-asset-item id="palace" src="https://cdn.glitch.global/b4270e34-f59d-42cd-9363-648211ab99a5/Palace_Textured.glb?v=1685044522595"></a-asset-item>
+      </a-assets>
+   
+
+      <a-entity gltf-model="#palace" scale="1 1 1" position="0 0 0"></a-entity>
+
+            
+      <!--Generic Buildings-->
+            
+      <a-assets>
+        <a-asset-item id="houses" src="https://cdn.glitch.me/b4270e34-f59d-42cd-9363-648211ab99a5/House_Group_Textured.glb?v=1685041852898"></a-asset-item>
+      </a-assets>
+   
+
+      <a-entity gltf-model="#houses" scale="1 1 1" position="0 0 0"></a-entity>
+      
+      
+       <!--Japanese Pagoda-->
+            
+      <a-assets>
+        <a-asset-item id="pagoda" src="https://cdn.glitch.global/b4270e34-f59d-42cd-9363-648211ab99a5/JapanesePagoda_Textured.glb?v=1685047563303"></a-asset-item>
+      </a-assets>
+   
+
+      <a-entity gltf-model="#pagoda" scale="1 1 1" position="0 0 0"></a-entity>
+      
+
+      
+      <!--JMountains-->
+            
+      <a-assets>
+        <a-asset-item id="mountains" src="https://cdn.glitch.global/b4270e34-f59d-42cd-9363-648211ab99a5/Mountains_Textured.glb?v=1684841184585"></a-asset-item>
+      </a-assets>
+   
+
+      <a-entity gltf-model="#mountains" scale="1 1 1" position="0 0 0" material="color: #000000"></a-entity>
+      
+      
+      
+      <!--Tree-->
+            
+      <a-assets>
+        <a-asset-item id="tree" src="https://cdn.glitch.global/b4270e34-f59d-42cd-9363-648211ab99a5/Arbol_Texturizado.glb?v=1684798939268"></a-asset-item>
+      </a-assets>
+   
+
+      <a-entity gltf-model="#tree" scale="1 1 1" position="0 0 0"></a-entity>
+      
+      
+      <!--Torii-->
+            
+      <a-assets>
+         <a-asset-item id="torii" src="https://cdn.glitch.global/b4270e34-f59d-42cd-9363-648211ab99a5/Toriis_Texturizados_Curvature.glb?v=1684840621960"></a-asset-item>
+      </a-assets>
+   
+
+      <a-entity gltf-model="#torii" scale="1 1 1" position="0 0 0" material="color: #000000"></a-entity>
+      
+      
+      <!--SakuraTree_Group-->
+            
+      <a-assets>
+         <a-asset-item id="sakuratree01" src="https://cdn.glitch.me/b4270e34-f59d-42cd-9363-648211ab99a5/SakuraTree_Compound.glb?v=1685030026892"></a-asset-item>
+      </a-assets>
+   
+
+      <a-entity gltf-model="#sakuratree01" scale="1 1 1" position="0 0 0" rotation="0 0 0"></a-entity>
+      
+      
+      <!--Benches-->
+            
+      <a-assets>
+         <a-asset-item id="bench" src="https://cdn.glitch.global/b4270e34-f59d-42cd-9363-648211ab99a5/Bench_Group_Textured.glb?v=1685038304202"></a-asset-item>
+      </a-assets>
+   
+
+      <a-entity gltf-model="#bench" scale="1 1 1" position="0 0 0" rotation="0 0 0"></a-entity>
+      
+      
+          <!--NoFace-->
+            
+      <a-assets>
+         <a-asset-item id="noface" src="https://cdn.glitch.global/b4270e34-f59d-42cd-9363-648211ab99a5/NoFace_Textured.glb?v=1685150680724"></a-asset-item>
+      </a-assets>
+   
+
+      <a-entity gltf-model="#noface" scale="1 1.1 1" position="-27 0 -31" rotation="0 40 0"></a-entity>
+      
+      
+          <!--StonePagodas-->
+            
+      <a-assets>
+         <a-asset-item id="stonepagodas" src="https://cdn.glitch.global/b4270e34-f59d-42cd-9363-648211ab99a5/StonePagodaLamp_Group_Textured.glb?v=1685391007470"></a-asset-item>
+      </a-assets>
+   
+
+      <a-entity gltf-model="#stonepagodas" scale="1 1.05 1" position="0 0 0" rotation="0 0 0"></a-entity>
+      
+           
+      
+      <!--Totoro Big-->
+            
+      <a-assets>
+         <a-asset-item id="totorobig" src="https://cdn.glitch.global/b4270e34-f59d-42cd-9363-648211ab99a5/Totoro_Big_Textured.glb?v=16852757677890"></a-asset-item>
+      </a-assets>      
+
+    <a-entity gltf-model="#totorobig" scale="1 1 1" position="-9 0 42" rotation="0 135 0"></a-entity>
+      
+      
+            <!--Totoro Small-->
+            
+      <a-assets>
+         <a-asset-item id="totorosmall" src="https://cdn.glitch.global/b4270e34-f59d-42cd-9363-648211ab99a5/Totoro_Small_Textured.glb?v=1685275831960"></a-asset-item>
+      </a-assets>      
+
+    <a-entity gltf-model="#totorosmall" scale="1 1 1" position="9.5 0 45" rotation="0 -90 0"></a-entity>
+      
+      
+            <!--Totoro Chibi-->
+            
+      <a-assets>
+         <a-asset-item id="totorochibi" src="https://cdn.glitch.global/b4270e34-f59d-42cd-9363-648211ab99a5/Totoro_Chibi_Textured.glb?v=1685276519273"></a-asset-item>
+      </a-assets>      
+
+    <a-entity gltf-model="#totorochibi" scale="1 1 1" position="11.2 0 45" rotation="0 -90 0"></a-entity>
+      
+      
+      
+            <!--City Ornaments-->
+            
+      <a-assets>
+         <a-asset-item id="ornaments" src="https://cdn.glitch.me/b4270e34-f59d-42cd-9363-648211ab99a5/City_Ornaments_Textured.glb?v=1685390513984"></a-asset-item>
+      </a-assets>      
+
+    <a-entity gltf-model="#ornaments" scale="1 1 1" position="0 0 0" rotation="0 -0 0"></a-entity>
+       
+
+      
+      
+      
+          <!--Luffy -->
+
+      <a-assets>
+        <a-asset-item
+          id="Luffy" src="https://cdn.glitch.global/b4270e34-f59d-42cd-9363-648211ab99a5/Luffy_text_final.glb?v=1684938600398"></a-asset-item>
+      </a-assets>
+
+      <a-entity gltf-model="#Luffy" scale="1.2 1.2 1.2" position="1 0 -18" rotation="0 -30 0" animation-mixer material="shader: flat"></a-entity>
+      
+
+            
+          <!--Zoro-->
+
+      <a-assets>
+        <a-asset-item
+          id="Zoro" src="https://cdn.glitch.global/b4270e34-f59d-42cd-9363-648211ab99a5/zoro_animated_texture.gltf?v=1685153709672"></a-asset-item>
+      </a-assets>
+
+      <a-entity gltf-model="#Zoro" scale="1.15 1.15 1.15" position="-31.5 0 -1.4" rotation="0 125 0" animation-mixer material="shader: flat"></a-entity>
+      
+      
+        <!--DO NOT TOUCH-->
+
+      
+    </a-scene>
+  </body>
+
+</html>
